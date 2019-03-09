@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 before_action :load_user, except: [:index, :create, :new]
+before_action :authorize_user, except: [:index, :new, :create, :show]
 
   def index
     # Создаём массив из двух болванок пользователей. Вызываем метод # User.new, который создает модель, не записывая её в базу.
@@ -69,6 +70,10 @@ before_action :load_user, except: [:index, :create, :new]
   end
 
   private
+
+  def authorize_user
+    reject_user unless @user == current_user
+  end
 
   def load_user
     @user ||= User.find params[:id]
