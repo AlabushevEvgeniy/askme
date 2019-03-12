@@ -10,4 +10,14 @@ module ApplicationHelper
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
+
+  def form_chooser(number, krokodil, krokodila, krokodilov)
+    ostatok = number % 10
+
+    return krokodil if ostatok == 1
+
+    return krokodila if ostatok.between?(2, 4)
+
+    return krokodilov if ostatok.between?(5, 9) || ostatok.zero?
+  end
 end
