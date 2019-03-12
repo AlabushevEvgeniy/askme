@@ -24,7 +24,9 @@
 </div>
 
 <div class="amount-questions">
-  <%= "У Вас #{@user.questions.count} #{form_chooser(@user.questions.count, 'вопрос', 'вопроса', 'вопросов')}" if current_user == @user %>
+  <p><%= "Всего: #{@questions_count} #{form_chooser(@questions_count, 'вопрос', 'вопроса', 'вопросов')}" %></p>
+  <p><%= "Отвеченных: #{@answered_questions} #{form_chooser(@answered_questions, 'вопрос', 'вопроса', 'вопросов')}" %></p>
+  <p><%= "Неотвеченных: #{@unanswered_questions} #{form_chooser(@unanswered_questions, 'вопрос', 'вопроса', 'вопросов')}" %></p>
 </div>
 
 

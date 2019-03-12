@@ -67,6 +67,10 @@ before_action :authorize_user, except: [:index, :new, :create, :show]
 
     @questions = @user.questions.order(created_at: :desc)
     @new_question = @user.questions.build
+
+    @questions_count = @questions.count
+    @answered_questions = @questions.where.not(answer: nil).count
+    @unanswered_questions = @questions_count - @answered_questions
   end
 
   private
