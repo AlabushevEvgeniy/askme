@@ -1,4 +1,5 @@
 require 'openssl'
+# include EmailValidatable
 
 class User < ApplicationRecord
   #параметры для шифрования
@@ -6,7 +7,8 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest::SHA256.new
 
   has_many :questions
-
+  validates :email, 'valid_email_2/email': true
+  # validates :email, email: true
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
 

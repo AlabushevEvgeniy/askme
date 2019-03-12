@@ -7,7 +7,7 @@ ruby '2.4.0'
 gem 'rails', '~> 5.2.2'
 gem 'jquery-rails', '~> 4.3.0'
 gem 'uglifier'
-
+gem 'valid_email2'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :production do
