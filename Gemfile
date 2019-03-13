@@ -5,6 +5,8 @@ ruby '2.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
+gem 'rails_12factor'
+
 gem 'jquery-rails', '~> 4.3.0'
 gem 'uglifier'
 gem 'valid_email2'
