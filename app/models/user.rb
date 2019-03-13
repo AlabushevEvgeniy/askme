@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def downcase_email
-    self.username = email.downcase
+    self.email = email.downcase
   end
 
   def encrypt_password
