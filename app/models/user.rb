@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :questions
 
-  before_validation :downcase_username
-  before_validation :downcase_email
+  before_save :downcase_username
+  before_save :downcase_email
 
   validates :email, 'valid_email_2/email': true
   validates :email, :username, presence: true
