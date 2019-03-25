@@ -3,16 +3,12 @@ module ApplicationHelper
     if user.avatar_url.present?
       user.avatar_url
     else
-      asset_path 'https://panorama.am/news_images/624/1870613_2/86.thumb.jpg'
+      asset_path 'default_image.jpg'
     end
   end
 
   def user_header_color(user)
-    if user.header_color.present?
-      user.header_color
-    else
-      '#005a55'
-    end
+    user.header_color || '#005a55'
   end
 
   def fa_icon(icon_class)
