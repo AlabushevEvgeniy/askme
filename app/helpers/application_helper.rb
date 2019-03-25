@@ -7,6 +7,14 @@ module ApplicationHelper
     end
   end
 
+  def user_header_color(user)
+    if user.header_color.present?
+      user.header_color
+    else
+      '#005a55'
+    end
+  end
+
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
