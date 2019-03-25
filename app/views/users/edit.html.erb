@@ -62,7 +62,12 @@
       </div>
     <% end %>
 
+  <div class="buffer-both button button-dark button-small">
+    <%= button_to "Удалить аккаунт", { action: "destroy", id: session[:user_id] },
+                                method: :delete, data: { confirm: "Вы уверены?" } %>
+  </div>
     <%# Подробнее про помощники для создания форм: %>
     <%# http://guides.rubyonrails.org/form_helpers.html %>
   </div>
+
 </div>

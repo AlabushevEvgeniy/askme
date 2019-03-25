@@ -45,6 +45,13 @@ before_action :authorize_user, except: [:index, :new, :create, :show]
     @unanswered_questions = @questions_count - @answered_questions
   end
 
+  def destroy
+    if current_user.present?
+      current_user.destroy
+      redirect_to users_url, notice: 'User was successfully destroyed.'
+    end
+  end
+
   private
 
   def authorize_user
