@@ -12,10 +12,12 @@
   <% end %>
 
   <div class="buffer-both">
-    <h1 class="title-medium">Хэштэги</h1>
+    <h1 class="title-medium">Хэштэги:</h1>
   </div>
 
   <% @hashtags.each do |hashtag| %>
-    <%= link_to hashtag.name + " ", hashtag_url(hashtag) %>
+    <span class="hashtag-link">
+      <%= link_to hashtag.name, hashtag_url(hashtag) %>
+    </span>
   <% end %>
 </div>
