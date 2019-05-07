@@ -1,4 +1,4 @@
-class CreateJoinTableHashtagQuestion < ActiveRecord::Migration[5.2]
+class CreateJoinTableHashtagsQuestion < ActiveRecord::Migration[5.2]
   def change
     create_join_table :hashtags, :questions do |t|
       t.index [:hashtag_id]

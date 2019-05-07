@@ -5,6 +5,7 @@ before_action :authorize_user, except: [:index, :new, :create, :show]
 
   def index
     @users = User.all
+    @hashtags = Hashtag.all
   end
 
   def new
