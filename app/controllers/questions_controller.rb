@@ -19,7 +19,8 @@ class QuestionsController < ApplicationController
 
   # PATCH/PUT /questions/1
   def update
-    if @question.update(question_params)
+    @question.hashtags.destroy_all if @question.present?
+    if @question.update!(question_params)
       redirect_to user_path(@question.user), notice: 'Воспрос изменен и сохранен.'
     else
       render :edit
@@ -55,7 +56,7 @@ class QuestionsController < ApplicationController
     # он может менять ответы на вопрос, ему доступно и поле :answer.
     if current_user.present? &&
       params[:question][:user_id].to_i == current_user.id
-      params.require(:question).permit(:user_id, :text, :answer)
+      params.require(:question).permit(:user_id, :text, :answer, :hashtag_id)
     else
       params.require(:question).permit(:user_id, :text)
     end

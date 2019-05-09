@@ -10,7 +10,6 @@ class Question < ApplicationRecord
   validates :text, length: {maximum: 255}
 
   before_save :scan_hashtags
-  before_update :destroy_hashtags_questions
 
   private
 
@@ -20,11 +19,7 @@ class Question < ApplicationRecord
     # @question.hashtags_questions.destroy_all if @question.present?
 
     "#{text} + #{answer}".scan(Hashtag::REGEXP).uniq.each do |name|
-      hashtags << Hashtag.find_or_create_by!(name: name.delete("#"))
+      hashtags << Hashtag.find_or_create_by!(name: name)
     end
-  end
-
-  def destroy_hashtags_questions
-    hashtags_questions.clear if @question.present?
   end
 end
