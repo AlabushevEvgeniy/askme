@@ -29,7 +29,9 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   def destroy
     user = @question.user
+    # hashtag = @question.hashtags
     @question.destroy
+    # hashtag.destroy if hashtag = nil
     redirect_to user_path(user), notice: 'Вопрос удален.'
   end
 
