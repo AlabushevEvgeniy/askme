@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
 
-  has_many :hashtags_questions
+  has_many :hashtags_questions, dependent: :destroy
   has_many :hashtags, through: :hashtags_questions
 
   belongs_to :user
