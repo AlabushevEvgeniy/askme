@@ -17,9 +17,7 @@
 
   <% @hashtags.each do |hashtag| %>
     <span class="hashtag-link">
-      <% if hashtag.questions.present? %>
       <%= link_to hashtag.name, hashtag_url(hashtag) %>
-      <% end %>
     </span>
   <% end %>
 </div>
