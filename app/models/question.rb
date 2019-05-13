@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
 
-  has_many :hashtags_questions, foreign_key: 'question_id'
-  has_many :hashtags, through: :hashtags_questions #, dependent: :destroy
+  has_many :hashtags_questions, dependent: :destroy
+  has_many :hashtags, through: :hashtags_questions
 
   belongs_to :user
   belongs_to :author, class_name: 'User', optional: true, foreign_key: 'author_id'
@@ -15,8 +15,7 @@ class Question < ApplicationRecord
 
   def scan_hashtags
     #удаляем старые связи вопроса с его хэштэгами
-    hashtags_questions.clear if @question.present?
-    # @question.hashtags_questions.destroy_all if @question.present?
+    hashtags_questions.clear
 
     "#{text} + #{answer}".scan(Hashtag::REGEXP).uniq.each do |name|
       hashtags << Hashtag.find_or_create_by!(name: name)
