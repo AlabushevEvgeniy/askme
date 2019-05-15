@@ -6,7 +6,7 @@ class Hashtag < ApplicationRecord
 
   validates :name, uniqueness: true
 
-  scope :with_questions, -> { joins(:questions).where.not(questions: {id: nil}) }
+  scope :with_questions, -> { joins(:questions).where.not(questions: {id: nil}).uniq }
 
   def to_param
     name
