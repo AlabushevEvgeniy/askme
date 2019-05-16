@@ -17,7 +17,7 @@ class Question < ApplicationRecord
     #удаляем старые связи вопроса с его хэштэгами
     hashtags_questions.clear
 
-    "#{text} + #{answer}".scan(Hashtag::REGEXP).uniq.each do |name|
+    "#{text} + #{answer}".downcase.scan(Hashtag::REGEXP).uniq.each do |name|
       hashtags << Hashtag.find_or_create_by!(name: name.downcase)
     end
   end
