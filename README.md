@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple app you can ask questions and give answers.
 
-Things you may want to cover:
+App used:
 
-* Ruby version
+* Ruby 2.5.3
 
-* System dependencies
+* SQLite on development and Postgres on production
 
-* Configuration
+* reCaptcha
 
-* Database creation
+* Russian language
 
-* Database initialization
+Using
 
-* How to run the test suite
+* Downloade or clone repository
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Use console:
+```
+   $ bundle install
+```
+```
+   $ bundle exec rails db:create
+```   
+```
+   $ bundle exec rails db:migrate
+```
+Start Rails server
+```
+   $ rails s
+```   
